@@ -16,7 +16,10 @@ from keras.layers.convolutional import Convolution2D
 
 # TODO: Build Convolutional Neural Network in Keras Here
 model = Sequential()
-model.add(Convolution2D(32, 3, 3, input_shape=(32, 32, 3), activation='relu'))
+model.add(Convolution2D(32, 3, 3, input_shape=(32, 32, 3)))
+# https://keras.io/layers/pooling/
+model.add(MaxPolling2D((2,2)))
+model.add(Activation('relu'))
 model.add(Flatten(input_shape=(32, 32, 3)))
 model.add(Dense(128))
 model.add(Activation('relu'))
